@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# À FAIRE à la mise en ligne : remplacer par l'adresse réelle du site
+Sitemap: https://VOTRE-DOMAINE.com/sitemap.xml

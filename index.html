@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MabelleCosmetics – Produits cosmétiques, soins et packs beauté</title>
+  <meta name="description" content="Découvrez MabelleCosmetics : produits cosmétiques, soins beauté, packs, vente en détail et en gros. Contactez-nous directement sur WhatsApp ou par téléphone.">
+  <meta name="theme-color" content="#FBF4E8">
+
+  <!-- Réseaux sociaux (Open Graph).
+       À FAIRE à la mise en ligne : remplacer l'URL de l'image par l'adresse complète,
+       ex : https://votre-domaine.com/images/brand/logo-rond.webp -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="MabelleCosmetics">
+  <meta property="og:title" content="MabelleCosmetics – Produits cosmétiques, soins et packs beauté">
+  <meta property="og:description" content="Vos essentielles de beauté au quotidien. Détail, gros, packs beauté et une boutique à Koumassi à votre écoute.">
+  <meta property="og:image" content="images/brand/logo-rond.webp">
+
+  <link rel="icon" type="image/png" href="images/brand/favicon.png">
+  <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="images/banners/hero.webp" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#produits">Aller au contenu</a>
+
+  <!-- ================= EN-TÊTE ================= -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#accueil" aria-label="MabelleCosmetics – retour à l'accueil">
+        <img src="images/brand/logo.webp" alt="MabelleCosmetics" width="900" height="301">
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#produits">Nos produits</a>
+        <a href="#packs">Nos packs</a>
+        <a href="#gros">Vente en gros</a>
+        <a href="#boutique">Notre boutique</a>
+        <a href="#lives">Nos Lives</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-wa btn-sm" href="#contact" data-wa="general">
+          <span data-icon="whatsapp"></span><span class="header-wa-label">WhatsApp</span>
+        </a>
+        <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Navigation mobile" hidden>
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Nos produits</a>
+      <a href="#packs">Nos packs</a>
+      <a href="#gros">Vente en gros</a>
+      <a href="#boutique">Notre boutique</a>
+      <a href="#lives">Nos Lives</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Votre beauté, vos essentiels, votre style.</h1>
+          <p class="lede">Découvrez MabelleCosmetics, votre espace dédié aux produits cosmétiques, soins et packs beauté. Disponible en détail et en gros.</p>
+
+          <div class="cta-row">
+            <a class="btn btn-wa btn-lg" href="#contact" data-wa="general">
+              <span data-icon="whatsapp"></span>Commander sur WhatsApp
+            </a>
+            <a class="btn btn-outline btn-lg" href="#contact" data-call>
+              <span data-icon="phone"></span>Nous appeler
+            </a>
+          </div>
+          <a class="text-link" href="#produits">Découvrir nos produits</a>
+        </div>
+
+        <div class="hero-visual">
+          <div class="arch">
+            <img src="images/banners/hero.webp" alt="Lait corporel, huile et gommage MabelleCosmetics dans un espace beauté" width="720" height="960" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BARRE DE CONFIANCE ================= -->
+    <section class="trust" aria-label="Nos points forts">
+      <ul class="container trust-list">
+        <li><span data-icon="store"></span>Boutique à Koumassi</li>
+        <li><span data-icon="bag"></span>Vente en détail</li>
+        <li><span data-icon="box"></span>Vente en gros</li>
+        <li><span data-icon="whatsapp"></span>Commande rapide par WhatsApp</li>
+      </ul>
+    </section>
+
+    <!-- ================= PRODUITS ================= -->
+    <section class="section" id="produits">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Découvrez nos produits</h2>
+          <p class="lede">Des essentiels beauté sélectionnés pour accompagner votre routine au quotidien.</p>
+        </div>
+        <div class="cat-grid reveal" id="categories-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= PACKS ================= -->
+    <section class="section section--sable" id="packs">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Nos packs beauté</h2>
+          <p class="lede">Des associations de produits pensées pour vous simplifier la routine beauté.</p>
+        </div>
+        <div class="pack-grid reveal" id="packs-grid"></div>
+
+        <div class="callout reveal">
+          <p class="callout-title">Vous cherchez un pack personnalisé ?</p>
+          <a class="btn btn-wa" href="#contact" data-wa="customPack">
+            <span data-icon="whatsapp"></span>Besoin d'un conseil ? Écrivez-nous sur WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VENTE EN GROS ================= -->
+    <section class="section" id="gros">
+      <div class="container gros-grid">
+        <div class="gros-copy reveal">
+          <h2>Vous achetez en gros ?</h2>
+          <p class="lede">MabelleCosmetics propose également des possibilités d'achat en gros et par packs. Contactez-nous directement pour connaître les disponibilités et les conditions.</p>
+
+          <ul class="checklist">
+            <li><span class="check" data-icon="check"></span>Achat en quantité</li>
+            <li><span class="check" data-icon="check"></span>Packs disponibles</li>
+            <li><span class="check" data-icon="check"></span>Échange direct avec notre équipe</li>
+          </ul>
+
+          <div class="cta-row">
+            <a class="btn btn-wa" href="#contact" data-wa="gros">
+              <span data-icon="whatsapp"></span>Demander les informations sur WhatsApp
+            </a>
+            <a class="btn btn-outline" href="#contact" data-call>
+              <span data-icon="phone"></span>Appeler maintenant
+            </a>
+          </div>
+        </div>
+
+        <div class="gros-media reveal">
+          <img src="images/banners/vente-en-gros.webp" alt="Rangée de flacons de gel douche, disponibles à l'achat en quantité" width="1000" height="800" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LIVES TIKTOK ================= -->
+    <section class="section section--sable" id="lives">
+      <div class="container">
+        <div class="tiktok reveal">
+          <div class="tiktok-profile">
+            <div class="tiktok-avatar">
+              <img src="images/brand/logo-icon.webp" alt="" width="512" height="471" loading="lazy">
+            </div>
+            <p class="tiktok-handle" id="tiktok-handle"></p>
+            <p class="tiktok-sub"><span data-icon="tiktok"></span>Lives TikTok réguliers</p>
+          </div>
+
+          <div class="tiktok-copy">
+            <h2>Retrouvez-nous en Live sur TikTok</h2>
+            <p>Découvrez nos produits, nos nouveautés, nos offres et nos conseils directement pendant nos Lives.</p>
+            <div class="tiktok-next" id="tiktok-next"></div>
+            <div class="cta-row" id="tiktok-actions"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOUTIQUES ================= -->
+    <section class="section" id="boutique">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Retrouvez MabelleCosmetics en boutique</h2>
+          <p class="lede">Un espace pour vous accueillir et vous permettre de découvrir nos produits.</p>
+        </div>
+        <div class="shop-grid reveal" id="shops-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= À PROPOS / POURQUOI ================= -->
+    <section class="section section--sable" id="apropos">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <h2>Pourquoi choisir MabelleCosmetics ?</h2>
+          <p class="lede">MabelleCosmetics est une enseigne de cosmétique : des produits accessibles, des conseils et une vraie proximité avec nos clientes.</p>
+        </div>
+
+        <ul class="why-list reveal">
+          <li><span class="why-icon" data-icon="sparkle"></span><div><h3>Une sélection de produits beauté</h3><p>Des essentiels choisis pour votre routine quotidienne.</p></div></li>
+          <li><span class="why-icon" data-icon="bag"></span><div><h3>Vente en détail et en gros</h3><p>À l'unité, en quantité ou en packs.</p></div></li>
+          <li><span class="why-icon" data-icon="gift"></span><div><h3>Des packs pratiques</h3><p>Des ensembles pour simplifier votre routine.</p></div></li>
+          <li><span class="why-icon" data-icon="tiktok"></span><div><h3>Une communauté active sur TikTok</h3><p>Nouveautés et offres présentées en Live.</p></div></li>
+          <li><span class="why-icon" data-icon="chat"></span><div><h3>Un contact direct avec notre équipe</h3><p>Posez vos questions sur WhatsApp ou par téléphone.</p></div></li>
+          <li><span class="why-icon" data-icon="store"></span><div><h3>Une boutique à Koumassi</h3><p>Venez découvrir les produits sur place.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= AVIS CLIENTES ================= -->
+    <section class="section" id="avis">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Ce que disent nos clientes</h2>
+        </div>
+        <div class="quote-grid reveal" id="testimonials-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section class="section section--sable" id="contact">
+      <div class="container">
+        <div class="final reveal">
+          <h2>Une question sur un produit ou un pack ?</h2>
+          <p>Notre équipe est disponible pour vous renseigner et vous orienter.</p>
+          <div class="cta-row cta-row--center">
+            <a class="btn btn-wa btn-lg" href="#contact" data-wa="general">
+              <span data-icon="whatsapp"></span>Écrire sur WhatsApp
+            </a>
+            <a class="btn btn-light btn-lg" href="#contact" data-call>
+              <span data-icon="phone"></span>Appeler MabelleCosmetics
+            </a>
+          </div>
+          <p class="final-tag">Réponse rapide • Commande simple • Contact direct</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= PIED DE PAGE ================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/brand/logo-rond.webp" alt="MabelleCosmetics" width="800" height="800" loading="lazy">
+        <p>Vos essentielles de beauté au quotidien</p>
+      </div>
+
+      <nav aria-label="Liens du pied de page">
+        <h2 class="footer-title">Navigation</h2>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#produits">Produits</a></li>
+          <li><a href="#packs">Packs</a></li>
+          <li><a href="#gros">Vente en gros</a></li>
+          <li><a href="#boutique">Boutique</a></li>
+          <li><a href="#lives">TikTok</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-title">Contact</h2>
+        <ul>
+          <li><a href="#contact" data-wa="general">WhatsApp</a></li>
+          <li><a href="#contact" data-call id="footer-phone">Téléphone</a></li>
+          <li><a href="#lives" data-tiktok-link>TikTok</a></li>
+        </ul>
+        <a class="btn btn-wa btn-sm footer-cta" href="#contact" data-wa="general">
+          <span data-icon="whatsapp"></span>Écrire sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 MabelleCosmetics — Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- ================= ACCÈS RAPIDE MOBILE / BUREAU ================= -->
+  <a class="fab-wa" href="#contact" data-wa="general" aria-label="Écrire sur WhatsApp">
+    <span data-icon="whatsapp"></span>
+  </a>
+
+  <div class="mobile-bar" role="group" aria-label="Contacter MabelleCosmetics">
+    <a class="btn btn-wa" href="#contact" data-wa="general"><span data-icon="whatsapp"></span>WhatsApp</a>
+    <a class="btn btn-outline" href="#contact" data-call><span data-icon="phone"></span>Appeler</a>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+/* ==========================================================
+   MabelleCosmetics — style.css
+   Sommaire : 1 Variables · 2 Base · 3 Boutons · 4 En-tête · 5 Hero
+              6 Confiance · 7 Sections · 8 Produits · 9 Packs · 10 Gros
+              11 TikTok · 12 Boutiques · 13 À propos · 14 Avis · 15 CTA final
+              16 Pied de page · 17 Accès rapide · 18 Animations · 19 Responsive
+   ========================================================== */
+
+/* ---------- 1. VARIABLES ---------- */
+:root {
+  --creme: #FBF4E8;
+  --sable: #F1E4CC;
+  --blanc: #FFFDF9;
+  --choco: #3A2417;
+  --choco-2: #7A5A44;      /* texte secondaire */
+  --choco-deep: #2A1810;
+  --or: #B8822F;
+  --or-clair: #E9C98A;
+  --abricot: #A9461F;      /* liens et accents lisibles */
+  --wa: #1F6B4A;           /* WhatsApp */
+  --wa-hover: #185A3E;
+  --ligne: rgba(58, 36, 23, 0.14);
+
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 28px;
+  --max: 1180px;
+
+  --font-titre: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-texte: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---------- 2. BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--choco);
+  font-family: var(--font-texte);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p, figure, blockquote { margin: 0; }
+
+h1, h2, h3 {
+  font-family: var(--font-titre);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--choco);
+}
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.75rem); }
+h3 { font-size: 1.25rem; line-height: 1.25; }
+
+.lede { font-size: 1.1rem; color: var(--choco-2); max-width: 52ch; margin-top: 16px; }
+
+.container { width: min(100% - 48px, var(--max)); margin-inline: auto; }
+
+:focus-visible { outline: 3px solid var(--or); outline-offset: 3px; border-radius: 6px; }
+
+.skip-link {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  background: var(--choco); color: var(--creme); padding: 10px 16px; border-radius: 8px;
+}
+.skip-link:focus { top: 12px; }
+
+[data-icon] { display: inline-flex; flex-shrink: 0; }
+[data-icon] svg { width: 1.2em; height: 1.2em; }
+
+/* ---------- 3. BOUTONS ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 26px;
+  border: 1.5px solid transparent; border-radius: 999px;
+  font-family: var(--font-texte); font-size: 0.98rem; font-weight: 700; line-height: 1.2;
+  cursor: pointer; text-align: center;
+  transition: background-color 0.18s, color 0.18s, border-color 0.18s, transform 0.12s;
+}
+.btn:active { transform: scale(0.97); }
+.btn [data-icon] svg { width: 1.25em; height: 1.25em; }
+
+.btn-lg { padding: 17px 30px; font-size: 1.04rem; }
+.btn-sm { padding: 10px 18px; font-size: 0.9rem; }
+
+.btn-wa { background: var(--wa); color: #fff; }
+.btn-wa:hover { background: var(--wa-hover); }
+
+.btn-outline { background: transparent; color: var(--choco); border-color: var(--choco); }
+.btn-outline:hover { background: var(--choco); color: var(--creme); }
+
+.btn-dark { background: var(--choco); color: var(--creme); }
+.btn-dark:hover { background: var(--choco-deep); }
+
+.btn-light { background: var(--creme); color: var(--choco); }
+.btn-light:hover { background: #fff; }
+
+.btn-gold { background: var(--or-clair); color: var(--choco); }
+.btn-gold:hover { background: #f1d9a8; }
+
+.btn-outline-light { background: transparent; color: var(--creme); border-color: rgba(251, 244, 232, 0.55); }
+.btn-outline-light:hover { background: var(--creme); color: var(--choco); }
+
+.text-link {
+  display: inline-block; margin-top: 22px; padding-bottom: 2px;
+  font-weight: 700; color: var(--choco); border-bottom: 2px solid var(--or);
+}
+.text-link:hover { color: var(--abricot); }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.cta-row--center { justify-content: center; }
+
+/* ---------- 4. EN-TÊTE ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251, 244, 232, 0.94);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.site-header.is-scrolled { border-color: var(--ligne); box-shadow: 0 10px 28px -20px rgba(58, 36, 23, 0.55); }
+
+.header-row { display: flex; align-items: center; gap: 24px; min-height: 80px; width: min(100% - 48px, 1280px); margin-inline: auto; }
+.brand { flex-shrink: 0; }
+.brand img { height: 56px; width: auto; }
+
+.nav-desktop { display: flex; gap: 22px; margin-left: auto; }
+.nav-desktop a {
+  padding: 6px 0; border-bottom: 2px solid transparent; white-space: nowrap;
+  font-size: 0.92rem; font-weight: 600; color: var(--choco-2);
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-desktop a:hover { color: var(--choco); border-color: var(--or); }
+
+.header-actions { display: flex; align-items: center; gap: 10px; }
+
+.burger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 44px; height: 44px; padding: 0 10px;
+  background: transparent; border: 0; cursor: pointer;
+}
+.burger span { display: block; height: 2px; background: var(--choco); border-radius: 2px; }
+
+.nav-mobile { border-top: 1px solid var(--ligne); background: var(--creme); padding: 6px 24px 18px; }
+.nav-mobile:not([hidden]) { display: flex; flex-direction: column; }
+.nav-mobile a { padding: 14px 4px; border-bottom: 1px solid var(--ligne); font-weight: 600; font-size: 1.02rem; }
+
+/* ---------- 5. HERO ---------- */
+.hero { padding-block: clamp(36px, 6vw, 84px) clamp(56px, 8vw, 100px); }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 6vw, 84px); align-items: center; }
+.hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.25rem); line-height: 1.04; letter-spacing: -0.02em; }
+.hero .lede { margin-top: 22px; }
+
+.arch { position: relative; width: min(100%, 420px); margin-inline: auto; aspect-ratio: 4 / 5; }
+.arch::before {
+  content: ""; position: absolute; inset: -14px 14px 14px -14px;
+  border: 1.5px solid var(--or); border-radius: 999px 999px 30px 30px;
+}
+.arch img {
+  position: relative; width: 100%; height: 100%; object-fit: cover;
+  border-radius: 999px 999px 30px 30px;
+  box-shadow: 0 30px 50px -30px rgba(58, 36, 23, 0.55);
+}
+
+/* ---------- 6. BARRE DE CONFIANCE ---------- */
+.trust { background: var(--choco); color: var(--creme); }
+.trust-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px 24px; padding-block: 26px; }
+.trust-list li { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 600; }
+.trust-list [data-icon] { color: var(--or-clair); }
+.trust-list [data-icon] svg { width: 24px; height: 24px; }
+
+/* ---------- 7. SECTIONS ---------- */
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.section--sable { background: var(--sable); }
+.section-head { max-width: 640px; margin-bottom: clamp(32px, 5vw, 52px); }
+section[id] { scroll-margin-top: 76px; }
+
+/* ---------- 8. PRODUITS ---------- */
+.cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 24px; }
+.cat img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+  border-radius: var(--r-md); background: var(--sable);
+}
+.cat h3 { margin-top: 16px; }
+.cat p { margin: 6px 0 16px; font-size: 0.93rem; color: var(--choco-2); }
+
+/* ---------- 9. PACKS ---------- */
+.pack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
+.pack { display: flex; flex-direction: column; align-items: flex-start; }
+.pack-media {
+  width: 100%; aspect-ratio: 4 / 5; overflow: hidden;
+  border-radius: 999px 999px var(--r-md) var(--r-md); background: var(--blanc);
+}
+.pack-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.pack h3 { margin-top: 22px; font-size: 1.4rem; }
+.pack p { flex: 1; margin: 8px 0 18px; color: var(--choco-2); }
+
+.callout {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  margin-top: clamp(40px, 6vw, 64px); padding: 28px 32px;
+  background: var(--blanc); border: 1px solid var(--ligne); border-radius: var(--r-lg);
+}
+.callout-title { font-family: var(--font-titre); font-size: 1.4rem; font-weight: 600; }
+
+/* ---------- 10. VENTE EN GROS ---------- */
+.gros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.checklist { display: grid; gap: 14px; margin-top: 28px; }
+.checklist li { display: flex; align-items: center; gap: 14px; font-weight: 600; }
+.check {
+  width: 28px; height: 28px; border-radius: 50%; align-items: center; justify-content: center;
+  background: var(--or-clair); color: var(--choco);
+}
+.check svg { width: 15px; height: 15px; }
+.gros-media img {
+  width: 100%; aspect-ratio: 5 / 4; object-fit: cover;
+  border-radius: var(--r-lg); box-shadow: 0 30px 50px -32px rgba(58, 36, 23, 0.6);
+}
+
+/* ---------- 11. TIKTOK ---------- */
+.tiktok {
+  display: grid; grid-template-columns: 0.8fr 1.2fr; overflow: hidden;
+  background: var(--choco); color: var(--creme); border-radius: var(--r-lg);
+}
+.tiktok-profile {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 48px 28px; background: var(--choco-deep);
+}
+.tiktok-avatar {
+  width: 112px; height: 112px; padding: 18px; border-radius: 50%;
+  background: var(--creme); border: 3px solid var(--or);
+}
+.tiktok-avatar img { width: 100%; height: 100%; object-fit: contain; }
+.tiktok-handle { margin-top: 18px; font-family: var(--font-titre); font-size: 1.4rem; font-weight: 600; }
+.tiktok-sub { display: flex; align-items: center; gap: 8px; margin-top: 4px; color: var(--or-clair); font-size: 0.92rem; font-weight: 600; }
+
+.tiktok-copy { padding: clamp(32px, 5vw, 56px); }
+.tiktok-copy h2 { color: var(--creme); }
+.tiktok-copy > p { margin-top: 14px; max-width: 46ch; color: #E2D2BE; }
+.tiktok-next {
+  display: flex; align-items: flex-start; gap: 14px; margin-top: 24px; max-width: 46ch;
+  padding: 16px 18px; border: 1px solid rgba(233, 201, 138, 0.35); border-radius: var(--r-sm);
+  font-size: 0.93rem; color: #E2D2BE;
+}
+.tiktok-next [data-icon] { color: var(--or-clair); margin-top: 2px; }
+.tiktok-next [data-icon] svg { width: 22px; height: 22px; }
+.tiktok-next strong { color: var(--creme); }
+.tiktok-copy .cta-row { margin-top: 24px; }
+
+/* ---------- 12. BOUTIQUES ---------- */
+.shop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.shop { overflow: hidden; background: var(--blanc); border: 1px solid var(--ligne); border-radius: var(--r-lg); }
+.shop-media { aspect-ratio: 16 / 9; background: var(--sable); display: flex; align-items: center; justify-content: center; }
+.shop-media img { width: 100%; height: 100%; object-fit: cover; }
+.shop-media img.shop-media-logo { width: 96px; height: auto; object-fit: contain; opacity: 0.55; }
+.shop-media iframe { width: 100%; height: 100%; border: 0; }
+.shop-body { padding: 26px 28px 28px; }
+.shop-line { display: flex; gap: 12px; margin-top: 12px; color: var(--choco-2); font-size: 0.97rem; }
+.shop-line [data-icon] { color: var(--abricot); margin-top: 3px; }
+.shop-line .is-pending { font-style: italic; }
+.shop-body h3 { font-size: 1.4rem; }
+.shop-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
+/* Une seule boutique : carte horizontale */
+.shop-grid--single { grid-template-columns: 1fr; }
+.shop-grid--single .shop { display: grid; grid-template-columns: 1fr 1fr; }
+.shop-grid--single .shop-media { aspect-ratio: auto; min-height: 300px; }
+.shop-grid--single .shop-media img.shop-media-logo { width: 140px; }
+.shop-grid--single .shop-body { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 4vw, 44px); }
+.shop-line a { color: var(--abricot); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- 13. À PROPOS / POURQUOI ---------- */
+.about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(32px, 6vw, 84px); align-items: start; }
+.about-copy { position: sticky; top: 110px; }
+.why-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 32px; }
+.why-list li { display: flex; gap: 16px; align-items: flex-start; }
+.why-icon {
+  width: 46px; height: 46px; border-radius: 50%; align-items: center; justify-content: center;
+  border: 1.5px solid var(--or); color: var(--abricot);
+}
+.why-icon svg { width: 22px; height: 22px; }
+.why-list h3 { font-size: 1.08rem; }
+.why-list p { margin-top: 4px; font-size: 0.92rem; color: var(--choco-2); }
+
+/* ---------- 14. AVIS ---------- */
+.quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.quote { padding-top: 22px; border-top: 2px solid var(--or); }
+.quote blockquote { font-family: var(--font-titre); font-style: italic; font-weight: 500; font-size: 1.3rem; line-height: 1.4; }
+.quote figcaption { margin-top: 18px; display: flex; flex-direction: column; font-size: 0.92rem; color: var(--choco-2); }
+.quote figcaption strong { color: var(--choco); }
+.quote.is-placeholder { padding: 24px; border: 1.5px dashed rgba(58, 36, 23, 0.3); border-radius: var(--r-md); }
+.quote.is-placeholder blockquote { color: var(--choco-2); }
+
+/* Un seul témoignage : mis en valeur, centré */
+.quote-grid--single { grid-template-columns: 1fr; max-width: 760px; }
+.quote-grid--single .quote blockquote { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+
+/* ---------- 15. CTA FINAL ---------- */
+.final {
+  padding: clamp(44px, 7vw, 84px) clamp(24px, 5vw, 64px); text-align: center;
+  background: var(--choco); border-radius: var(--r-lg); color: var(--creme);
+  box-shadow: inset 0 0 0 1px rgba(233, 201, 138, 0.35);
+}
+.final h2 { color: var(--creme); max-width: 20ch; margin-inline: auto; font-size: clamp(2rem, 4vw, 3rem); }
+.final > p:not(.final-tag) { margin: 16px auto 0; max-width: 46ch; color: #E2D2BE; font-size: 1.08rem; }
+.final .btn-wa { background: #2A8560; }
+.final .btn-wa:hover { background: #31966C; }
+.final-tag { margin-top: 28px; font-size: 0.9rem; color: var(--or-clair); font-weight: 600; }
+
+/* ---------- 16. PIED DE PAGE ---------- */
+.site-footer { background: var(--choco-deep); color: #D9C7B4; padding-top: clamp(48px, 7vw, 76px); }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 44px; }
+.footer-brand img { width: 128px; height: 128px; border-radius: 50%; }
+.footer-brand p { margin-top: 16px; max-width: 28ch; font-family: var(--font-titre); font-style: italic; font-size: 1.1rem; color: var(--creme); }
+.footer-title { margin-bottom: 16px; font-family: var(--font-texte); font-size: 0.95rem; font-weight: 800; letter-spacing: 0; color: var(--creme); }
+.site-footer li + li { margin-top: 10px; }
+.site-footer li a { color: #D9C7B4; font-size: 0.95rem; transition: color 0.15s; }
+.site-footer li a:hover { color: var(--or-clair); }
+.footer-cta { margin-top: 22px; }
+.footer-bottom { padding-block: 22px; border-top: 1px solid rgba(255, 255, 255, 0.12); font-size: 0.85rem; color: #A8917B; }
+
+/* ---------- 17. ACCÈS RAPIDE ---------- */
+.fab-wa {
+  position: fixed; right: 24px; bottom: 24px; z-index: 60;
+  width: 58px; height: 58px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--wa); color: #fff;
+  box-shadow: 0 16px 30px -10px rgba(31, 107, 74, 0.7);
+  transition: transform 0.15s, background-color 0.15s;
+}
+.fab-wa:hover { background: var(--wa-hover); transform: translateY(-2px); }
+.fab-wa [data-icon] svg { width: 30px; height: 30px; }
+
+.mobile-bar {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; gap: 10px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(255, 253, 249, 0.97); border-top: 1px solid var(--ligne);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.mobile-bar .btn { flex: 1; padding: 13px 10px; }
+
+/* ---------- 18. ANIMATIONS (discrètes) ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.hero-copy > * { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.hero-copy > :nth-child(2) { animation-delay: 0.08s; }
+.hero-copy > :nth-child(3) { animation-delay: 0.16s; }
+.hero-copy > :nth-child(4) { animation-delay: 0.24s; }
+
+.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- 19. RESPONSIVE ---------- */
+@media (max-width: 1180px) {
+  .nav-desktop { display: none; }
+  .header-actions { margin-left: auto; }
+  .burger { display: inline-flex; }
+}
+
+@media (max-width: 900px) {
+  .hero-grid, .gros-grid, .about-grid, .tiktok { grid-template-columns: 1fr; }
+  .hero-visual { order: 2; }
+  .arch { width: min(100%, 360px); }
+  .trust-list { grid-template-columns: repeat(2, 1fr); }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; }
+  .pack-grid, .quote-grid, .shop-grid { grid-template-columns: 1fr; }
+  .shop-grid--single .shop { grid-template-columns: 1fr; }
+  .shop-grid--single .shop-media { aspect-ratio: 16 / 9; min-height: 0; }
+  .pack-media { max-width: 420px; }
+  .about-copy { position: static; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .tiktok-profile { padding: 36px 24px; }
+}
+
+@media (max-width: 760px) {
+  body { padding-bottom: 78px; }
+  .fab-wa { display: none; }
+  .mobile-bar { display: flex; }
+  .brand img { height: 46px; }
+  .header-row { gap: 12px; min-height: 68px; }
+  section[id] { scroll-margin-top: 68px; }
+  .why-list { grid-template-columns: 1fr; }
+  .callout { padding: 24px 22px; }
+  .callout .btn { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .container { width: min(100% - 36px, var(--max)); }
+  .cta-row .btn { flex: 1 1 100%; }
+  .tiktok-copy .cta-row .btn { flex: 1 1 100%; }
+  .shop-actions .btn { flex: 1 1 100%; }
+  .cat p { font-size: 0.88rem; }
+  .cat .btn { width: 100%; }
+}
+
+@media (max-width: 380px) {
+  .header-wa-label { display: none; }
+}
